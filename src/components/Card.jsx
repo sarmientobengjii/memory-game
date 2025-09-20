@@ -28,14 +28,7 @@ const Card = ({ card, onClick, isDisabled }) => {
           <span>?</span>
         </div>
         <div className="card-back">
-          {/* TODO: Replace with <img src={card.src} alt={card.name} /> when using SVGs */}
-          {card.src ? (
-            <img src={card.src} alt={card.name} />
-          ) : (
-            <span role="img" aria-label={card.name}>
-              {card.symbol}
-            </span>
-          )}
+          <img src={card.src} alt={card.name} />
         </div>
       </div>
     </button>
