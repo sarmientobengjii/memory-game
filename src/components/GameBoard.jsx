@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from './Card';
 
-const GameBoard = ({ cards, onCardClick, difficulty, isDisabled }) => {
+const GameBoard = ({ cards, onCardClick, difficulty, isDisabled, isShuffling }) => {
   return (
     <div 
-      className="game-board"
+      className={`game-board ${isShuffling ? 'shuffling' : ''}`}
+      data-difficulty={difficulty.id}
       style={{
         gridTemplateColumns: `repeat(${difficulty.cols}, 1fr)`,
         gridTemplateRows: `repeat(${difficulty.rows}, 1fr)`

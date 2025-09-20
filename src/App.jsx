@@ -11,6 +11,7 @@ import './App.css';
 const MemoryCardGame = () => {
   const [difficulty, setDifficulty] = useState(DIFFICULTY_LEVELS[1]); // Default to Medium
   const [bestScores, setBestScores] = useLocalStorage('memory-game-scores', {});
+  const [isShuffling, setIsShuffling] = useState(false);
   
   const gameLogic = useGameLogic(difficulty);
   const timer = useTimer(gameLogic.gameStarted, gameLogic.gameComplete);
@@ -41,16 +42,24 @@ const MemoryCardGame = () => {
   }, [gameLogic.gameComplete, gameLogic.moves, timer.seconds, difficulty, currentBestScore, setBestScores]);
 
   const handleDifficultyChange = (newDifficulty) => {
-    setDifficulty(newDifficulty);
-    timer.reset();
+    setIsShuffling(true);
+    setTimeout(() => {
+      setDifficulty(newDifficulty);
+      timer.reset();
+      setIsShuffling(false);
+    }, 600); // Match shuffle animation duration
   };
 
   const handleRestart = () => {
-    gameLogic.resetGame();
-    timer.reset();
+    setIsShuffling(true);
+    setTimeout(() => {
+      gameLogic.resetGame();
+      timer.reset();
+      setIsShuffling(false);
+    }, 600); // Match shuffle animation duration
   };
 
-  const isDisabled = gameLogic.flippedCards.length >= 2 || gameLogic.gameComplete;
+  const isDisabled = gameLogic.flippedCards.length >= 2 || gameLogic.gameComplete || isShuffling;
 
   return (
     <div className="memory-game">
@@ -79,6 +88,7 @@ const MemoryCardGame = () => {
           onCardClick={gameLogic.flipCard}
           difficulty={difficulty}
           isDisabled={isDisabled}
+          isShuffling={isShuffling}
         />
       </main>
     </div>
