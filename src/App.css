@@ -32,7 +32,7 @@
   gap: 1.5rem;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
 }
 
 /* Difficulty Selector */
@@ -141,26 +141,31 @@
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
-/* Game Board */
+/* Game Board - Responsive Grid */
 .game-board {
   display: grid;
-  gap: 0.75rem;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   backdrop-filter: blur(10px);
+  width: 100%;
+  justify-content: center;
 }
 
-/* Memory Cards */
+/* Memory Cards - Much Larger on Desktop */
 .memory-card {
   aspect-ratio: 1;
-  min-height: 60px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   perspective: 1000px;
   background: transparent;
   transition: transform 0.2s ease;
+  /* Desktop size - 3x bigger */
+  min-height: 120px;
+  width: 120px;
+  height: 120px;
 }
 
 .memory-card:hover:not(:disabled) {
@@ -198,10 +203,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-size: 1.5rem;
+  border-radius: 12px;
+  font-size: 2rem;
   font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-front {
@@ -213,12 +218,15 @@
   background: white;
   color: #374151;
   transform: rotateY(180deg);
+  padding: 8px;
 }
 
+/* SVG styling - Full coverage with proper scaling */
 .card-back img {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 .memory-card.matched .card-back {
@@ -226,7 +234,26 @@
   color: #166534;
 }
 
-/* Responsive Design */
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .memory-card {
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card-front,
+  .card-back {
+    font-size: 1.8rem;
+  }
+  
+  .game-board {
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .memory-game {
     padding: 0.5rem;
@@ -247,23 +274,57 @@
   }
 
   .game-board {
-    gap: 0.5rem;
-    padding: 0.5rem;
+    gap: 0.6rem;
+    padding: 1rem;
   }
 
   .memory-card {
-    min-height: 50px;
+    min-height: 80px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .card-back {
+    padding: 4px;
+  }
+}
+
+/* Small Phone Responsive */
+@media (max-width: 480px) {
+  .memory-card {
+    min-height: 60px;
+    width: 60px;
+    height: 60px;
   }
 
   .card-front,
   .card-back {
     font-size: 1.2rem;
+    border-radius: 6px;
+  }
+  
+  .card-back {
+    padding: 2px;
+  }
+  
+  .game-board {
+    gap: 0.4rem;
+    padding: 0.8rem;
   }
 }
 
+/* Very Small Phone */
 @media (max-width: 320px) {
   .memory-card {
-    min-height: 40px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
   }
 
   .card-front,
