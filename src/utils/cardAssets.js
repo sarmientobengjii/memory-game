@@ -1,0 +1,20 @@
+export const CARD_ASSETS = [
+  { id: 'card-01', symbol: '🎭', name: 'Theater Mask', src: null },
+  { id: 'card-02', symbol: '🎨', name: 'Art Palette', src: null },
+  { id: 'card-03', symbol: '🎪', name: 'Circus Tent', src: null },
+  { id: 'card-04', symbol: '🎯', name: 'Target', src: null },
+  { id: 'card-05', symbol: '🎲', name: 'Dice', src: null },
+  { id: 'card-06', symbol: '🎸', name: 'Guitar', src: null },
+  { id: 'card-07', symbol: '🎹', name: 'Piano', src: null },
+  { id: 'card-08', symbol: '🎺', name: 'Trumpet', src: null },
+  { id: 'card-09', symbol: '🎻', name: 'Violin', src: null },
+  { id: 'card-10', symbol: '🎧', name: 'Headphones', src: null },
+  { id: 'card-11', symbol: '🎤', name: 'Microphone', src: null },
+  { id: 'card-12', symbol: '🎬', name: 'Movie Camera', src: null },
+  { id: 'card-13', symbol: '🎮', name: 'Game Controller', src: null },
+  { id: 'card-14', symbol: '🕹️', name: 'Joystick', src: null },
+  { id: 'card-15', symbol: '🎳', name: 'Bowling', src: null },
+  { id: 'card-16', symbol: '🏆', name: 'Trophy', src: null },
+  { id: 'card-17', symbol: '🏅', name: 'Medal', src: null },
+  { id: 'card-18', symbol: '🥇', name: 'Gold Medal', src: null }
+];
